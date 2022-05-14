@@ -1,0 +1,335 @@
+div{
+  display: flex;
+  padding: 0;
+  border: 0;
+  margin: 0;
+}
+
+body{
+  background-color: transparent;
+}
+
+html{
+  /* font-size: 0.8333333vw */
+  font-size: 1vw
+}
+
+@font-face {
+  font-family: 'HeirofLightBold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/HeirofLightBold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DeogonPrincess';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/DeogonPrincess.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF_IceLemon';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/SF_IceLemon.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'LAB디지털';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/LAB디지털.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face{
+  font-family:"chaney-ultra-extended";
+  src: url("https://dafonttop.com/wp-data/c/922/11922/file/chaney-ultraextended.otf") format("woff");
+}
+
+html,body,#root,.App{
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  margin: 0;
+  flex-direction: column;
+  font-family: 'NanumSquare', sans-serif;
+  /* font-family: 'HeirofLightBold'; */
+  /* font-family: 'chaney-ultra-extended'; */
+  /* font-family: 'LAB디지털'; */
+  /* font-family: 'DeogonPrincess';
+  font-family: 'SF_IceLemon'; */
+}
+
+.scoreboard{
+  width: 100%;
+  height: 15%;
+  background-color: aqua;
+}
+
+.board-time{
+  background-color: #2B2642;
+  padding: 0% 5% 0% 5%;
+  text-align: center;
+}
+
+.board-time-text{
+  text-align: center;
+}
+
+/* .board{
+  font-weight: 1000;
+  text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+} */
+
+.board-red{
+  background-color: #C62C28;
+}
+.board-blue{
+  background-color: #728EFB;
+}
+
+.board-team-name-text{
+  /* color:rgba(0, 0, 0, 0.763) */
+}
+
+.banpicks{
+  width: 100%;
+  height: 85%;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.banpick{
+  background-color: transparent;
+  height: 100%;
+  width: 20%;
+  flex-direction: column;
+}
+
+.picks{
+  height: 85%;
+  width: 100%;
+  flex-direction: column;
+}
+
+.pick{
+  height: 20%;
+  width: 100%;
+  position: relative;
+}
+
+.pick-child,.ban-child{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+@keyframes blink{
+  0%{
+    opacity: 0%;
+  }
+  50%{
+    opacity: 50%;
+  }
+  100%{
+    opacity: 0%;
+  }
+}
+
+.now{
+  display: none;
+}
+
+.now.doing{
+  display: flex;
+}
+
+.blink{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  animation: blink 1.5s ease 0s infinite;
+}
+
+.blue .blink{
+  background: linear-gradient(to right,transparent,#ffffffa0);
+}
+
+.red .blink{
+  background: linear-gradient(to left,transparent,#ffffffa0);
+}
+
+.dark{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #251111;
+  z-index: 3;
+  opacity: 50%;
+}
+
+.bans{
+  background-color: transparent;
+  height: 12%;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.red.bans{
+  flex-direction: row-reverse;
+}
+
+.ban{
+  height: 100%;
+  width: 19.2%;
+  position: relative;
+}
+
+.ban-blank{
+  width: 4%;
+}
+
+.champ-img img{
+  width: 100%;
+  height: 100%;
+  object-fit:cover;
+}
+
+.champ-img{
+  overflow: hidden;
+  background-size: cover;
+} 
+
+.champ-img > img{
+  position: relative;
+  z-index: 2;
+  transform: scale(1.5);
+}
+
+.ban-child.champ-img >img{
+  transform: scale(1.3);
+}
+
+.between{
+  width: 100%;
+  height: 1.5%;
+}
+
+.red > .not-selected{
+  background: linear-gradient(225deg,transparent,#2f4f4ff0);
+}
+
+.blue > .not-selected{
+  background: linear-gradient(135deg,transparent,#2f4f4ff0);
+}
+
+.not-selected > img{
+  display: none;
+}
+
+.champ-info{
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  z-index: 5;
+  align-items: center;
+}
+.info-child.top-blank{
+  height: 10%;
+}
+.champ-name-div{
+  width: 90%;
+  height: 20%;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.red .champ-name-div{
+  align-items: flex-start;
+}
+
+.champ-name{
+  height: 100%;
+  color: white;
+  font-weight: 800;
+  font-size: 1.5rem;
+  text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+}
+
+.ban-champ-name{
+  height: 100%;
+  align-items: center;
+  color: white;
+  font-weight: 800;
+  font-size: 0.7rem;
+  text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+}
+
+.ban-champ-name-div{
+  align-items: flex-end;
+}
+
+.info-child.middle-blank{
+  height: 40%;
+}
+
+.user-name-div{
+  width: 90%;
+  height: 20%;
+  justify-content: flex-end;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.red .user-name-div{
+  align-items: flex-start;
+}
+
+.user-name{
+  color: white;
+  font-weight: 800;
+  font-size: 2rem;
+  text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+}
+
+.dont-show{
+  display: none;
+}
+
+.spell-info{
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  z-index: 5;
+  align-items: center;
+}
+
+.spell-child.top-blank{
+  height: 17.5%;
+}
+
+.spell-child.middle-blank{
+  height: 5%;
+}
+
+.spell-div{
+  width: 95%;
+  height: 30%;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.red .spell-div{
+  align-items: flex-end;
+}
+
+.spell-img{
+  position: relative;
+  width: auto;
+  height: 100%;
+}
